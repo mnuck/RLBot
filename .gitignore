@@ -117,3 +117,6 @@ ENV/
 
 # Emacs droppings
 *~
+
+# Volatile RLBot Config
+rlbot.cfg
