@@ -114,3 +114,6 @@ ENV/
 
 # Gradle
 /.gradle
+
+# Emacs droppings
+*~
