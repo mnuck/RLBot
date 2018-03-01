@@ -60,7 +60,7 @@ proc GetControllerState*(): ControllerState {.stdcall, exportc, dynlib.} =
 
   let brakeLimit = math.PI / 2.0
   result.Handbrake = false
-  if correction.Yaw < - brakeLimit or correction.Yaw > brakeLimit:
+  if abs(correction.Yaw) > brakeLimit:
     result.Handbrake = true
 
   result.Boost = false
