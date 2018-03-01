@@ -46,8 +46,9 @@ proc rotator(v: Vector3): Rotator =
 
 proc GetControllerState*(): ControllerState {.stdcall, exportc, dynlib.} =
   let car = GlobalGameTickPacket.Players[GlobalGameTickPacket.PlayerIndex]
-  let opponent = GlobalGameTickPacket.Players[1 - GlobalGameTickPacket.PlayerIndex]
-  let intent = (opponent.Location - car.Location).rotator
+  let target = GlobalGameTickPacket.Ball
+  #let target = GlobalGameTickPacket.Players[1 - GlobalGameTickPacket.PlayerIndex]
+  let intent = (target.Location - car.Location).rotator
   let correction = intent - car.Rotation
 
   let turnMultiplier = 3.0
