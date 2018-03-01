@@ -69,4 +69,3 @@ proc GetControllerState*(): ControllerState {.stdcall, exportc, dynlib.} =
     
   result.Yaw = result.Steer
   result.Throttle = 1.0
-  result.Boost = true
