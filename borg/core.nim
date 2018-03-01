@@ -3,10 +3,9 @@ import math
 from rlplumbing import Vector3, Rotator, Touch, ScoreInfo, PlayerInfo, BallInfo, BoostInfo, GameInfo, GameTickPacket, ControllerState, GlobalGameTickPacket, NewVector3, NewRotator, NewTouch, NewScoreInfo, NewPlayerInfo, NewBallInfo, NewBoostInfo, NewGameInfo, ClearGameTickPacket, SetPlayerIndex, SetBallInfo, SetGameInfo, AddPlayerInfo, AddBoostInfo
   
 proc scaleRadians(angle: float): float =
+  let rotations = ((abs(angle) - math.PI) / math.TAU).ceil()
   if angle > 0.0:
-    let rotations = ((angle + math.PI) / math.TAU).floor()
     return angle - (rotations * math.TAU)
-  let rotations = ((angle - math.PI) / math.TAU).ceil()
   return angle + (rotations * math.TAU)
 
 proc `+` (a, b: Rotator): Rotator =
